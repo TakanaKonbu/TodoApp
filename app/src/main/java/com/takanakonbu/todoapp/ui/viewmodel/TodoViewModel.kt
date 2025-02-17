@@ -18,6 +18,15 @@ class TodoViewModel(private val repository: TodoRepository) : ViewModel() {
         initialValue = emptyList()
     )
 
+    // 特定のTodoを取得
+    fun getTodoById(id: Int): StateFlow<TodoItem?> {
+        return repository.getTodoById(id).stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = null
+        )
+    }
+
     // Todoの追加
     fun addTodo(title: String, content: String) {
         viewModelScope.launch {
