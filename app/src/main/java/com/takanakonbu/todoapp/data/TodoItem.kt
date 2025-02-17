@@ -1,4 +1,4 @@
-package com.takanakonbu.todoapp.data.entity
+package com.takanakonbu.todoapp.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
